@@ -183,7 +183,6 @@ int main(int argc, char** argv) {
     return -3;
   }
 
-  std::unique_ptr<AudioInput> audio_input;
   // Set the AudioInConfig of the AssistRequest
   assist_config->mutable_audio_in_config()->set_encoding(
       AudioInConfig::LINEAR16);
@@ -226,7 +225,8 @@ int main(int argc, char** argv) {
   }
   stream->Write(request);
 
-  audio_input.reset(new AudioInputFile(audio_input_source));
+  std::unique_ptr<AudioInput> audio_input(
+      new AudioInputFile(audio_input_source));
 
   audio_input->AddDataListener(
       [stream, &request](std::shared_ptr<std::vector<unsigned char>> data) {

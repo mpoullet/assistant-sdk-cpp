@@ -88,7 +88,7 @@ bool AudioOutputALSA::Start() {
   snd_pcm_hw_params_free(pcm_params);
 
   isRunning = true;
-  alsaThread.reset(new std::thread([this, pcm_handle]() {
+  alsaThread = std::thread([this, pcm_handle]() {
     while (isRunning) {
       std::unique_lock<std::mutex> lock(audioDataMutex);
 
@@ -118,7 +118,7 @@ bool AudioOutputALSA::Start() {
     // Wait for all data to be consumed.
     snd_pcm_drain(pcm_handle);
     snd_pcm_close(pcm_handle);
-  }));
+  });
   return true;
 }
 
@@ -130,8 +130,7 @@ void AudioOutputALSA::Stop() {
   }
 
   isRunning = false;
-  alsaThread->join();
-  alsaThread.reset(nullptr);
+  alsaThread.join();
 }
 
 void AudioOutputALSA::Send(std::shared_ptr<std::vector<unsigned char>> data) {
