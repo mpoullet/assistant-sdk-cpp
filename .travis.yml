@@ -1,0 +1,23 @@
+language:
+  - cpp
+
+# blocklist
+branches:
+  except:
+    - master
+    - appveyor
+
+# safelist
+branches:
+  only:
+    - travis
+
+addons:
+  apt:
+    packages:
+      - libasound2-dev
+
+before_script:
+  - sudo apt-get update
+script:
+  - tests/build.sh
