@@ -1,0 +1,9 @@
+# Reference card: https://www.appveyor.com/docs/appveyor-yml/
+# Validate YAML: https://ci.appveyor.com/tools/validate-yaml
+
+image:
+  - Ubuntu1804
+before_build:
+  - sudo apt-get update
+build_script:
+  - tests/build.sh
