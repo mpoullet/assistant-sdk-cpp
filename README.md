@@ -1,3 +1,4 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/4ocx1r3cycsqkcra/branch/appveyor?svg=true)](https://ci.appveyor.com/project/mpoullet/assistant-sdk-cpp/branch/appveyor)
 # Google Assistant SDK for devices - C++
 
 ## Requirements
