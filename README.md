@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/mpoullet/assistant-sdk-cpp.svg?branch=travis)](https://travis-ci.org/mpoullet/assistant-sdk-cpp)
 # Google Assistant SDK for devices - C++
 
 ## Requirements
