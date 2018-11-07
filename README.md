@@ -1,3 +1,4 @@
+[![CircleCI](https://circleci.com/gh/mpoullet/assistant-sdk-cpp/tree/circleci.svg?style=svg)](https://circleci.com/gh/mpoullet/assistant-sdk-cpp/tree/circleci)
 # Google Assistant SDK for devices - C++
 
 ## Requirements
