@@ -1,0 +1,19 @@
+version: 2
+jobs:
+  build:
+    branches:
+      only:
+        - circleci
+    docker:
+        - image: buildpack-deps:xenial
+    steps:
+      - checkout
+      - run:
+          name: Update list of available packages
+          command: apt-get update
+      - run:
+          name: Install sudo
+          command: apt-get -y -qq install sudo
+      - run:
+          name: Build assistant
+          command: tests/build.sh
